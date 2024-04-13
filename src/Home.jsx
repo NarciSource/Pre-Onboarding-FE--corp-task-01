@@ -2,6 +2,7 @@ import { useState, useEffect, Fragment } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { Octokit } from '@octokit/rest';
 import keys from './keys.json'
+import './Home.scss';
 
 function Home() {
     const [issues, setIssues] = useState([]);
@@ -25,27 +26,29 @@ function Home() {
         })();
     }, []);
 
+    const formattedDate = dateString=> new Intl.DateTimeFormat('ko-KR').format(new Date(dateString));
+
 
     return (
         <div>
             <div className='issue-list'>
                 <h1>Angular / Angular-cli</h1>
                 <ul>
-                {issues.slice(0,5).map((item, idx)=> (
+                {issues.slice(0,7).map((item, idx)=> (
                     <Fragment key={idx}>
                         <li>
                             <Link to={`/detail/${item.number}`} state={{ body: item.body_html }} onClick={()=> setSelectedNumber(item.number)}>
-                                <div>
+                                <div className='title'>
                                     <h3>{`#${item.number} ${item.title}`}</h3>
-                                    <div>
+                                    <small>
                                         <span>작성자: {item.user.login}</span>
                                         ,&nbsp;
-                                        <span>작성일: {item.created_at}</span>
-                                    </div>
+                                        <span>작성일: {formattedDate(item.created_at)}</span>
+                                    </small>
                                 </div>
-                                <div>
+                                <small className='comment'>
                                     <span>코멘트: {item.comments}</span>
-                                </div>
+                                </small>
                             </Link>
 
                             {selectedNumber === item.number && (
@@ -56,7 +59,7 @@ function Home() {
                         </li>
                         {idx%5===4 && (
                             <li>
-                                <img src='/ads.jpg' alt='' />
+                                <div className='ads'></div>
                             </li>
                         )}
                     </Fragment>
