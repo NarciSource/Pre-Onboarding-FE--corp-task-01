@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { Octokit } from '@octokit/rest';
 import keys from './keys.json'
@@ -27,8 +27,8 @@ function Home() {
                 <h1>Angular / Angular-cli</h1>
                 <ul>
                 {issues.slice(0,5).map((item, idx)=> (
-                    <>
-                        <li key={idx}>
+                    <Fragment key={idx}>
+                        <li>
                             <Link to={`/detail/${item.number}`} onClick={()=> setSelectedNumber(item.number)}>
                                 <div>
                                     <h3>{`#${item.number} ${item.title}`}</h3>
@@ -54,7 +54,7 @@ function Home() {
                                 <img src='/ads.jpg' alt='' />
                             </li>
                         )}
-                    </>
+                    </Fragment>
                 ))}
                 </ul>
             </div>
