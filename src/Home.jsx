@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import axios from 'axios';
 
 function Home() {
     const [issues, setIssues] = useState([
-        {
-            num: 111,
-            title: "issue title",
-            author: "name",
-            date: "2019년12월31일",
-            comments: 67,
-        }
     ]);
+
+    (async function callIssues() {
+        const url = "https://api.github.com/repos/angular/angular-cli/issues";    
+
+        let response = await axios.get(url);
+        setIssues([...issues, ...response.data]);
+    })();
+
 
     return (
         <div>
@@ -19,12 +21,13 @@ function Home() {
                 <ul>
                 {issues.map((item, idx)=> (
                     <li key={idx}>
-                        <Link to={`/detail/${item.num}`}>
+                        <Link to={`/detail/${item.number}`}>
                             <div>
-                                <h3>{`#${item.num} ${item.title}`}</h3>
+                                <h3>{`#${item.number} ${item.title}`}</h3>
                                 <div>
-                                    <span>작성자: {item.author}</span>
-                                    <sapn>작성일: {item.date}</sapn>
+                                    <span>작성자: {item.user.login}</span>
+                                    ,&nbsp;
+                                    <sapn>작성일: {item.created_at}</sapn>
                                 </div>
                             </div>
                             <div>
