@@ -1,5 +1,5 @@
 import { useState, useEffect, Fragment } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { Octokit } from '@octokit/rest';
 import keys from './keys.json'
 import './Home.scss';
@@ -7,6 +7,7 @@ import './Home.scss';
 function Home() {
     const [issues, setIssues] = useState([]);
     const [selectedNumber, setSelectedNumber] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(()=> {
         (async function callIssues() {
@@ -28,6 +29,16 @@ function Home() {
 
     const formattedDate = dateString=> new Intl.DateTimeFormat('ko-KR').format(new Date(dateString));
 
+    const linkEvent = (e, targetNumber)=> {
+        if (selectedNumber === targetNumber) {
+            e.preventDefault();
+            setSelectedNumber(null);
+            navigate(-1);
+        } else {
+            setSelectedNumber(targetNumber);
+        }
+    }
+
 
     return (
         <div>
@@ -37,7 +48,7 @@ function Home() {
                 {issues.slice(0,7).map((item, idx)=> (
                     <Fragment key={idx}>
                         <li>
-                            <Link to={`/detail/${item.number}`} state={{ body: item.body_html }} onClick={()=> setSelectedNumber(item.number)}>
+                            <Link to={`/detail/${item.number}`} state={{ body: item.body_html }} onClick={e=>linkEvent(e, item.number)}>
                                 <div className='title'>
                                     <h3>{`#${item.number} ${item.title}`}</h3>
                                     <small>
