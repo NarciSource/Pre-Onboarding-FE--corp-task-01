@@ -9,22 +9,28 @@ function Home() {
     const [selectedNumber, setSelectedNumber] = useState(null);
     const navigate = useNavigate();
 
-    useEffect(()=> {
-        (async function callIssues() {
-            const url = "https://api.github.com/repos/angular/angular-cli/issues";
-    
-            const octokit = new Octokit({
-                auth: keys.REACT_APP_GITHUB_AUTH,
-            });
-    
-            let response = await octokit.request('GET '+url, {
-                headers: {
-                    Accept: 'application/vnd.github.html+json',
-                },
-            });
+    async function callIssues(page=1) {
+        const url = "https://api.github.com/repos/{owner}/{repo}/issues";
 
-            setIssues([...issues, ...response.data]);
-        })();
+        const octokit = new Octokit({
+            auth: keys.REACT_APP_GITHUB_AUTH,
+        });
+
+        let response = await octokit.request('GET '+url, {
+            owner: 'angular',
+            repo: 'angular-cli',
+            sort: 'comments',
+            page,
+            headers: {
+                Accept: 'application/vnd.github.html+json',
+            },
+        });
+
+        setIssues([...issues, ...response.data]);
+    }
+
+    useEffect(()=> {
+        callIssues();
     }, []);
 
     const formattedDate = dateString=> new Intl.DateTimeFormat('ko-KR').format(new Date(dateString));
@@ -45,7 +51,7 @@ function Home() {
             <div className='issue-list'>
                 <h1>Angular / Angular-cli</h1>
                 <ul>
-                {issues.slice(0,7).map((item, idx)=> (
+                {issues.map((item, idx)=> (
                     <Fragment key={idx}>
                         <li>
                             <Link to={`/detail/${item.number}`} state={{ body: item.body_html }} onClick={e=>linkEvent(e, item.number)}>
