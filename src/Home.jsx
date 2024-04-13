@@ -1,17 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import axios from 'axios';
+import { Octokit } from '@octokit/rest';
+import keys from './keys.json'
 
 function Home() {
     const [issues, setIssues] = useState([]);
     const [selectedNumber, setSelectedNumber] = useState(null);
 
-    (async function callIssues() {
-        const url = "https://api.github.com/repos/angular/angular-cli/issues";    
-
-        let response = await axios.get(url);
-        setIssues([...issues, ...response.data]);
-    })();
+    useEffect(()=> {
+        (async function callIssues() {
+            const url = "https://api.github.com/repos/angular/angular-cli/issues";
+    
+            const octokit = new Octokit({
+                auth: keys.REACT_APP_GITHUB_AUTH,
+            });
+    
+            let response = await octokit.request('GET '+url);
+            setIssues([...issues, ...response.data]);
+        })();
+    }, []);
 
 
     return (
