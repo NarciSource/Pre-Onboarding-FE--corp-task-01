@@ -15,7 +15,12 @@ function Home() {
                 auth: keys.REACT_APP_GITHUB_AUTH,
             });
     
-            let response = await octokit.request('GET '+url);
+            let response = await octokit.request('GET '+url, {
+                headers: {
+                    Accept: 'application/vnd.github.html+json',
+                },
+            });
+
             setIssues([...issues, ...response.data]);
         })();
     }, []);
@@ -29,7 +34,7 @@ function Home() {
                 {issues.slice(0,5).map((item, idx)=> (
                     <Fragment key={idx}>
                         <li>
-                            <Link to={`/detail/${item.number}`} onClick={()=> setSelectedNumber(item.number)}>
+                            <Link to={`/detail/${item.number}`} state={{ body: item.body_html }} onClick={()=> setSelectedNumber(item.number)}>
                                 <div>
                                     <h3>{`#${item.number} ${item.title}`}</h3>
                                     <div>

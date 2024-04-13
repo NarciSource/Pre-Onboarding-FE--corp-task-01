@@ -1,9 +1,7 @@
-
+import { useLocation } from 'react-router-dom'
 function Detail() {
     return (
-        <div>
-            body
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: useLocation().state.body }}></div>
     );
 }
 
