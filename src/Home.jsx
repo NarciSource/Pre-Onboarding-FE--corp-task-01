@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { Octokit } from '@octokit/rest';
 import keys from './keys.json'
-import './Home.scss';
+import styled from 'styled-components';
 
 function Home() {
     const [issues, setIssues] = useState([]);
@@ -63,7 +63,7 @@ function Home() {
 
     return (
         <div>
-            <div className='issue-list'>
+            <ListDiv>
                 <h1>Angular / Angular-cli</h1>
                 <ul>
                 {issues.map((item, idx)=> (
@@ -84,23 +84,81 @@ function Home() {
                             </Link>
 
                             {selectedNumber === item.number && (
-                                <div className='issue-detail'>
+                                <div>
                                     <Outlet></Outlet>
                                 </div>
                             )}
                         </li>
                         {idx%5===4 && (
                             <li>
-                                <div className='ads'></div>
+                                <AdsDiv></AdsDiv>
                             </li>
                         )}
                     </Fragment>
                 ))}
                 </ul>
-            </div>
-            <hr></hr>
+            </ListDiv>
         </div>
     );
 }
+
+const ListDiv = styled.div`
+    h1 {
+        text-align: center;   
+    }
+    h3 {
+        margin: 5px 0;
+        font-size: 15px;
+    }
+    small {
+        font-size: 11px;
+    }
+    li {
+        list-style: none;
+        padding: 12px 0;
+        border-bottom: 1px solid black;
+    }
+    li a {
+        display: flex;
+        text-decoration: none;
+        color: inherit;
+    }
+    li a:hover {
+        color: inherit;
+    }
+    .title {
+        width: calc(100% - 100px);
+        h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .comment {
+        width: 70px;
+        display: flex;
+        align-items: center;
+    }
+`;
+
+const AdsDiv = styled.div`
+    width: 350px;
+    height: 200px;
+    background-image: url('/ads.jpg');
+    background-size: cover;
+    position: relative;
+
+    &::before {
+        content: 'ads';
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+        color: white;
+        font-size: 20px;
+    }
+`
 
 export default Home;

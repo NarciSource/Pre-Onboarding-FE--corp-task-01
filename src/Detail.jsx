@@ -1,10 +1,16 @@
 import { useLocation } from 'react-router-dom';
-import './Detail.scss';
+import styled from 'styled-components'
 
 function Detail() {
     return (
-        <div dangerouslySetInnerHTML={{ __html: useLocation().state.body }}></div>
+        <DetailDiv dangerouslySetInnerHTML={{ __html: useLocation().state.body }}></DetailDiv>
     );
 }
+
+const DetailDiv = styled.div`
+    border: 1px solid;
+    padding: 10px;
+    font-size: 10px;
+`;
 
 export default Detail;
