@@ -11,7 +11,6 @@ function Home() {
 
     async function callIssues(page=1) {
         const url = "https://api.github.com/repos/{owner}/{repo}/issues";
-
         const octokit = new Octokit({
             auth: keys.REACT_APP_GITHUB_AUTH,
         });
@@ -25,12 +24,29 @@ function Home() {
                 Accept: 'application/vnd.github.html+json',
             },
         });
-
-        setIssues([...issues, ...response.data]);
+        setIssues(prevIssues => [...prevIssues, ...response.data]);
     }
 
     useEffect(()=> {
+        let page = 0;
+        const handleScroll = () => {
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = document.documentElement.scrollTop;
+            const clientHeight = document.documentElement.clientHeight;
+            const threshold = 10;
+
+            if (scrollHeight - scrollTop  <= clientHeight + threshold) {
+                page++;
+                console.log(`${page}번째 이슈 목록 불러오는 중`);
+                callIssues(page);
+            }
+        };
+
         callIssues();
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const formattedDate = dateString=> new Intl.DateTimeFormat('ko-KR').format(new Date(dateString));
@@ -44,7 +60,6 @@ function Home() {
             setSelectedNumber(targetNumber);
         }
     }
-
 
     return (
         <div>
