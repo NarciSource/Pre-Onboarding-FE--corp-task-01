@@ -1,17 +1,25 @@
 import styled from "styled-components";
 
 function AdsComp() {
-    return <AdsDiv></AdsDiv>;
+    return (
+        <AdsAnchor href="https://www.wanted.co.kr/">
+            <div></div>
+        </AdsAnchor>
+    );
 }
 
-const AdsDiv = styled.div`
-    width: 350px;
-    height: 200px;
-    background-image: url("/ads.jpg");
-    background-size: cover;
-    position: relative;
+const AdsAnchor = styled.a`
+    display: flex;
+    justify-content: center;
 
-    &::before {
+    div {
+        width: 350px;
+        height: 200px;
+        background-image: url("/ads.jpg");
+        background-size: cover;
+        position: relative;
+    }
+    div::before {
         content: "ads";
         width: 100%;
         height: 100%;

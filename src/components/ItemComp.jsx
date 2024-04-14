@@ -21,6 +21,8 @@ function ItemComp({ item }) {
 }
 
 const ItemDiv = styled.div`
+    display: flex;
+    width: 100%;
     h3 {
         margin: 5px 0;
         font-size: 15px;
