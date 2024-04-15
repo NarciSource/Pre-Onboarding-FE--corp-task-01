@@ -6,6 +6,7 @@ function Detail() {
 }
 
 const DetailDiv = styled.div`
+    overflow: scroll;
     border: 1px solid;
     padding: 10px;
     font-size: 10px;
