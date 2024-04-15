@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
-function ItemComp({ item }) {
+function IssueHeaderComp({ issue }) {
     const formattedDate = (dateString) => new Intl.DateTimeFormat("ko-KR").format(new Date(dateString));
 
     return (
-        <ItemDiv>
+        <IssueHeaderDiv>
             <div className="title">
-                <h3>{`#${item.number} ${item.title}`}</h3>
+                <h3>{`#${issue.number} ${issue.title}`}</h3>
                 <small>
-                    <span>작성자: {item.user.login}</span>
+                    <span>작성자: {issue.user.login}</span>
                     ,&nbsp;
-                    <span>작성일: {formattedDate(item.created_at)}</span>
+                    <span>작성일: {formattedDate(issue.created_at)}</span>
                 </small>
             </div>
             <small className="comment">
-                <span>코멘트: {item.comments}</span>
+                <span>코멘트: {issue.comments}</span>
             </small>
-        </ItemDiv>
+        </IssueHeaderDiv>
     );
 }
 
-const ItemDiv = styled.div`
+const IssueHeaderDiv = styled.div`
     display: flex;
     width: 100%;
     h3 {
@@ -45,4 +45,4 @@ const ItemDiv = styled.div`
     }
 `;
 
-export default ItemComp;
+export default IssueHeaderComp;
