@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Store from "../store/store";
@@ -6,7 +6,7 @@ import IssueHeaderComp from "./IssueHeaderComp";
 
 function IssueComp({ issue }) {
     const navigate = useNavigate();
-    const [selectedNumber, setSelectedNumber] = useState(Store);
+    const {selectedNumber, setSelectedNumber} = useContext(Store);
 
     const linkEvent = (targetNumber) => (e) => {
         if (selectedNumber === targetNumber) {
