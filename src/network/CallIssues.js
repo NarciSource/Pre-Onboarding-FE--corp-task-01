@@ -7,6 +7,7 @@ const callIssuesWithHook = (setter) => async (page=1) => {
         auth: keys.REACT_APP_GITHUB_AUTH,
     });
 
+    console.log(`${page}번째 이슈 목록 불러오는 중`);
     let response = await octokit.request('GET '+url, {
         owner: 'angular',
         repo: 'angular-cli',

@@ -1,42 +1,19 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, Fragment } from "react";
 import styled from "styled-components";
 import Store from "../store/store";
-import callIssuesWithHook from "../network/callIssues";
 import IssueComp from "../components/IssueComp";
 import AdsComp from "../components/AdsComp";
+import LoadMore from "../components/LoadMore";
 
 function List() {
     const [issues, setIssues] = useState([]);
     const [selectedNumber, setSelectedNumber] = useState(null);
-    const callIssues = callIssuesWithHook(setIssues);
-
-    useEffect(() => {
-        let page = 0;
-        const handleScroll = () => {
-            const scrollHeight = document.documentElement.scrollHeight;
-            const scrollTop = document.documentElement.scrollTop;
-            const clientHeight = document.documentElement.clientHeight;
-            const threshold = 10;
-
-            if (scrollHeight - scrollTop <= clientHeight + threshold) {
-                page++;
-                console.log(`${page}번째 이슈 목록 불러오는 중`);
-                callIssues(page);
-            }
-        };
-
-        callIssues();
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     return (
         <ListDiv>
             <h1>Angular / Angular-cli</h1>
             <ul>
-                <Store.Provider value={{ selectedNumber, setSelectedNumber }}>
+                <Store.Provider value={{ selectedNumber, setSelectedNumber, setIssues }}>
                     {issues.map((issue, idx) => (
                         <Fragment key={idx}>
                             <li>
@@ -49,6 +26,7 @@ function List() {
                             )}
                         </Fragment>
                     ))}
+                    <LoadMore></LoadMore>
                 </Store.Provider>
             </ul>
         </ListDiv>
