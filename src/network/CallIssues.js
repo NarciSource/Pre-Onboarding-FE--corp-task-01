@@ -1,10 +1,9 @@
 import { Octokit } from '@octokit/rest';
-import keys from '../keys.json'
 
 const callIssuesWithHook = (setter) => async (page=1) => {
     const url = "https://api.github.com/repos/{owner}/{repo}/issues";
     const octokit = new Octokit({
-        auth: keys.REACT_APP_GITHUB_AUTH,
+        auth: process.env.REACT_APP_GITHUB_AUTH,
     });
 
     console.log(`${page}번째 이슈 목록 불러오는 중`);
