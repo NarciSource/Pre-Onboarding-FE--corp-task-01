@@ -71,7 +71,7 @@ corp-task--01
    ├─ index.js
    ├─ logo.svg
    ├─ network
-   │  └─ CallIssues.js
+   │  └─ callIssues.js
    ├─ pages
    │  ├─ Detail.jsx
    │  └─ List.jsx
