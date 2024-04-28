@@ -15,14 +15,13 @@
 ## 🛠️ 기술 스택
 
 -   ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![CSS](https://img.shields.io/badge/CSS3-%231572B6?style=flat-square&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26?style=flat-square&logo=html5&logoColor=white)
--   [![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black)](https://reactjs.org) [![CRA](https://img.shields.io/badge/Create%20React%20App-09D3AC?style=flat-square&logo=createreactapp&logoColor=white)](https://create-react-app.dev/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)](https://reactrouter.com/en/main)
+-   [![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black)](https://reactjs.org) [![CRA](https://img.shields.io/badge/Create%20React%20App-09D3AC?style=flat-square&logo=createreactapp&logoColor=white)](https://create-react-app.dev/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)](https://reactrouter.com/en/main) [![React ContextAPI](https://img.shields.io/badge/React%20ContextAPI-CA4245?style=flat-square)](https://react.dev/reference/react/useContext)
 -   [![Sass](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white)](https://sass-lang.com/) [![styled-components](https://img.shields.io/badge/styled%20components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white)](https://styled-components.com/)
--   [React ContextAPI](https://react.dev/reference/react/useContext)
--   [Octokit REST API](https://github.com/octokit)
+-   [![Octokit REST API](https://img.shields.io/badge/Octokit%20REST%20API-black?style=flat-square)](https://github.com/octokit)
 
 ## 🎥 데모
 
-[데모 보기](https://narcisource.github.io/Pre-Onboarding-FE--corp-task-01)  
+[데모 보기](https://narcisource.github.io/Pre-Onboarding-FE--corp-task-01)
 
 <img alt="Demo" src="https://github.com/NarciSource/Pre-Onboarding-FE--corp-task-01/assets/26417221/3bd6ad02-6705-4ddd-bdda-3cfa684c5955" width="30%" />
 
