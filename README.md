@@ -2,46 +2,50 @@
 
 > 깃헙 공개 저장소(https://github.com/angular/angular-cli )의 이슈 목록과 상세 내용을 확인
 
-
 ## 🚩 목차
-- [🛠️ 기술 스택](#%EF%B8%8F-기술-스택)
-- [🎥 데모](#-데모)
-- [⚙️ 주요 기능](#%EF%B8%8F-주요-기능)
-- [🪝 사용한 리액트 훅](#-사용한-리액트-훅)
-- [🎨 UI](#-ui)
-- [📂 프로젝트 구조](#-프로젝트-구조)
-- [🚀 실행 방법](#-실행-방법)
+
+-   [🛠️ 기술 스택](#%EF%B8%8F-기술-스택)
+-   [🎥 데모](#-데모)
+-   [⚙️ 주요 기능](#%EF%B8%8F-주요-기능)
+-   [🪝 사용한 리액트 훅](#-사용한-리액트-훅)
+-   [🎨 UI](#-ui)
+-   [📂 프로젝트 구조](#-프로젝트-구조)
+-   [🚀 실행 방법](#-실행-방법)
 
 ## 🛠️ 기술 스택
-- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![CSS](https://img.shields.io/badge/CSS3-%231572B6?style=flat-square&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26?style=flat-square&logo=html5&logoColor=white)
-- [![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black)](https://reactjs.org) [![CRA](https://img.shields.io/badge/Create%20React%20App-09D3AC?style=flat-square&logo=createreactapp&logoColor=white)](https://create-react-app.dev/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)](https://reactrouter.com/en/main)
-- [![Sass](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white)](https://sass-lang.com/) [![styled-components](https://img.shields.io/badge/styled%20components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white)](https://styled-components.com/)
-- [React ContextAPI](https://react.dev/reference/react/useContext)
-- [Octokit REST API](https://github.com/octokit)
 
+-   ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![CSS](https://img.shields.io/badge/CSS3-%231572B6?style=flat-square&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26?style=flat-square&logo=html5&logoColor=white)
+-   [![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black)](https://reactjs.org) [![CRA](https://img.shields.io/badge/Create%20React%20App-09D3AC?style=flat-square&logo=createreactapp&logoColor=white)](https://create-react-app.dev/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)](https://reactrouter.com/en/main)
+-   [![Sass](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white)](https://sass-lang.com/) [![styled-components](https://img.shields.io/badge/styled%20components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white)](https://styled-components.com/)
+-   [React ContextAPI](https://react.dev/reference/react/useContext)
+-   [Octokit REST API](https://github.com/octokit)
 
 ## 🎥 데모
-<img alt="Demo" src="https://github.com/NarciSource/Pre-Onboarding-FE--corp-task-01/assets/26417221/3bd6ad02-6705-4ddd-bdda-3cfa684c5955" width="30%" />
 
+[데모 보기](https://narcisource.github.io/Pre-Onboarding-FE--corp-task-01)  
+
+<img alt="Demo" src="https://github.com/NarciSource/Pre-Onboarding-FE--corp-task-01/assets/26417221/3bd6ad02-6705-4ddd-bdda-3cfa684c5955" width="30%" />
 
 ## ⚙️ 주요 기능
 
-- 목록, 상세 페이지 - Outlet을 이용하여 한 페이지 안에서 렌더링
-- 이슈 목록 Github REST API 사용
-- 이슈 목록은 코멘트 순
-- 다섯번째 셀마다 광고 이미지 배너 출력
-- 화면을 아래로 스크롤 하면 목록을 더 불러오기
+-   목록, 상세 페이지 - Outlet을 이용하여 한 페이지 안에서 렌더링
+-   이슈 목록 Github REST API 사용
+-   이슈 목록은 코멘트 순
+-   다섯번째 셀마다 광고 이미지 배너 출력
+-   화면을 아래로 스크롤 하면 목록을 더 불러오기
 
 ## 🪝 사용한 리액트 훅
 
-- React hooks - useState, useEffect, useContext
-- React Router hooks - useLocation, useNavigate
+-   React hooks - useState, useEffect, useContext
+-   React Router hooks - useLocation, useNavigate
 
 ## 🎨 UI
+
 <img alt="목록 페이지" src="https://github.com/NarciSource/Pre-Onboarding-FE--corp-task-01/assets/26417221/685ee452-fd7b-43b7-a719-712827164f5f" width="30%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img alt="상세 피이지" src="https://github.com/NarciSource/Pre-Onboarding-FE--corp-task-01/assets/26417221/688830a4-1027-4dfa-9b2d-9cd519bbab3d" width="30%"/>
 
 ## 📂 프로젝트 구조
+
 ```
 corp-task--01
 ├─ .git
@@ -61,7 +65,6 @@ corp-task--01
 └─ src
    ├─ App.css
    ├─ App.jsx
-   ├─ App.test.js
    ├─ components
    │  ├─ AdsComp.jsx
    │  ├─ IssueComp.jsx
@@ -75,10 +78,8 @@ corp-task--01
    ├─ pages
    │  ├─ Detail.jsx
    │  └─ List.jsx
-   ├─ reportWebVitals.js
    ├─ router
    │  └─ router.jsx
-   ├─ setupTests.js
    └─ store
       └─ store.js
 
@@ -160,4 +161,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 #### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-

@@ -15,7 +15,7 @@ const AdsAnchor = styled.a`
     div {
         width: 350px;
         height: 200px;
-        background-image: url("/ads.jpg");
+        background-image: url(${process.env.PUBLIC_URL}/ads.jpg);
         background-size: cover;
         position: relative;
     }
